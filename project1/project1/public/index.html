@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -11,23 +11,32 @@
     <title>Application Form</title>
   </head>
     <body>
+
+
         <nav class="navbar navbar-dark bg-primary">
           <a class="navbar-brand" href="#">
             <img src="1024px-BITS_Pilani-Logo.svg.png" width="30" height="30" class="d-inline-block align-top" alt="">
             BITSAT 2019
           </a>
+          <span>
+            <button type="button" class="btn btn-danger">Logout</button>
+          </span>
         </nav>
+
         <br />
+
+
         <div class="container">
-          <center><h4>ONLINE VERIFICATION PORTAL</h4> 
-          </center> 
+            <h4 style="text-align: center">ONLINE VERIFICATION PORTAL</h4> 
         </div>
+
         <br />
+
         <div class="container" style="background:brown;color:white;border-left:1px black solid;border-right:1px black solid;border-top:1px black solid;">
           Search Candidates
         </div>
-        <form class="container" style="border: 1px solid black;" id="frmExamCredentials">
-         
+        
+        <form class="container" style="border: 1px solid black;" id="frmExamCredentials"> 
             <div class="form-group row" style="padding-top: 8px;padding-bottom: 8px;">
                 <label for="rollNo" class="col-sm-2 col-form-label">Roll Number</label>
                 <div class="col-md-4">
@@ -37,10 +46,9 @@
 
                 </div>
                 <div class="col-md-4">
-                    <button type="submit" class="btn btn-primary">Verify</button>
+                    <button type="button" id="checkRollNo" class="btn btn-primary">Verify</button>
                 </div>
-              </div>
-
+            </div>
         </form>
 
         <div style="margin-top: 25px"></div> 
@@ -56,30 +64,33 @@
                     <label for="firstName" class="col-form-label">First Name</label>
                 </div>
                 <div class="col-sm-4">
-                  <input type="text" class="form-control" id="firstName" placeholder="First Name" readonly>
+                  <input type="text" class="form-control" id="firstName" placeholder="First Name" disabled>
                 </div>
                 <div class="col-sm-2">
-                    <label for="surName" class="col-form-label">Surname</label>
+                  <label for="surName" class="col-form-label">Surname</label>
                 </div>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="surName" placeholder="surName" readonly>
+                  <input type="text" class="form-control" id="surName" placeholder="surName" disabled>
                 </div>
             </div>
+
+
+
             <div class="form-group row">
                 <div class="col-sm-2">
                     Gender
                 </div>
                 <div class="col-sm-1">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" disabled>
                         <label class="form-check-label" for="gridRadios1">
                           Male
                         </label>
-                      </div>
+                    </div>
                 </div>
                 <div class="col-sm-1">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" disabled>
                         <label class="form-check-label" for="gridRadios2s">
                           Female
                         </label>
@@ -87,7 +98,7 @@
                 </div>
                 <div class="col-sm-1">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
                         <label class="form-check-label" for="gridRadios3">
                           Others
                         </label>
@@ -99,62 +110,131 @@
                     <label for="dob" class="col-form-label">Date of Birth</label>
                 </div>
                 <div class="col-sm-4">
-                  <input type="text" class="form-control" id="dob" placeholder="dob" readonly>
+                  <input type="text" class="form-control" id="dob" placeholder="dob" disabled>
                 </div>
-            </div>
+              </div>
+
             <div class="form-group row">
                 <div class="col-sm-2">
                     <label for="frmEmail" class="col-form-label">Email</label>
                 </div>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="frmEmail" placeholder="Email" readonly>
+                    <input type="text" class="form-control" id="frmEmail" placeholder="Email" disabled>
                 </div>
                 <div class="col-sm-2">
                     <label for="frmPhone" class="col-form-label">Phone Number</label>
                 </div>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="frmPhone" placeholder="Phone Number" readonly>
+                    <input type="text" class="form-control" id="frmPhone" placeholder="Phone Number" disabled>
                 </div>
             </div>
             
-          <div class="form-group row">
-            <div class="col-sm-2">
-                  <label for="currAddress">Current Address</label>
+            <div class="form-group row">
+                <div class="col-sm-2">
+                      <label for="currAddress">Current Address</label>
+                </div>
+                <div class="col-sm-4">
+                      <textarea class="form-control rounded-0" id="currAddress" rows="4" disabled></textarea>
+                </div>
+                <div class="col-sm-2">
+                      <label for="perAddress">Permanent Address</label>
+                </div>
+                <div class="col-sm-4">
+                      <textarea class="form-control rounded-0" id="perAddress" rows="4" disabled></textarea>
+                </div>
             </div>
-            <div class="col-sm-4">
-                  <textarea class="form-control rounded-0" id="currAddress" rows="4"></textarea>
-            </div>
-            
 
 
-          <div class="col-sm-2">
-                <label for="perAddress">Permanent Address</label>
-          </div>
-          <div class="col-sm-4">
-                <textarea class="form-control rounded-0" id="perAddress" rows="4"></textarea>
-          </div>
-          </div>
             <div class="form-group row" >
                 <div class="col-sm-2"  >
                     <label for="fatherName" class="col-form-label">Father's Name</label>
                 </div>
                 <div class="col-sm-4">
-                  <input type="text" class="form-control" id="fatherName" placeholder="Father's Name" readonly>
+                  <input type="text" class="form-control" id="fatherName" placeholder="Father's Name" disabled>
                 </div>
                 <div class="col-sm-2">
                     <label for="motherName" class="col-form-label">Mother's name</label>
                 </div>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="surName" placeholder="Mother's name" readonly>
-                </div>
-  
+                    <input type="text" class="form-control" id="surName" placeholder="Mother's name" disabled>
+                </div>    
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-2">
+                <label for="community" class="col-form-label">Community</label>
               </div>
-        </form>  
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="community" placeholder="Community" disabled>
+              </div>
+            </div>
+          </div>
+        </form>
+        
+        <div style="margin-top: 25px"></div> 
+
+        <div class="container" style="background:brown;color:white;border-left:1px black solid;border-right:1px black solid;border-top:1px black solid;">
+          Bio-Metric details
+        </div>
+        <form class="container" style="border: 1px solid black;" id="frmBioDetails">
+          <div style="padding-top: 10px;padding-bottom: 10px;">
+              
+                <div class="form-group row">
+                  <div class="col-sm-2">
+                    <button type="button" class="btn btn-primary" id="photo">Photo</button>
+                  </div>
+                </div>
+      
+      
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        <img src="" class="img-thumbnail"> 
+                    </div>
+                </div>
+                
+            <div class="form-group row">
+              <div class="col-sm-2">
+                <button type="button" class="btn btn-primary" id="thumbButton">Thumb</button>
+              </div>
+              <div class="col-sm-2">
+                <button type="button" class="btn btn-primary" id="indexButton">Index Finger</button>
+              </div>
+              <div class="col-sm-2">
+                <button type="button" class="btn btn-primary" id="middleButton">Middle Finger</button>
+              </div>
+              <div class="col-sm-2">
+                <button type="button" class="btn btn-primary" id="ringButton">Ring Finger</button>
+              </div>
+              <div class="col-sm-2">
+                <button type="button" class="btn btn-primary" id="littleButton">Little Finger</button>
+              </div>
+          </div>
+        <div class="form-group row">
+              <div class="col-sm-2">
+                  <img src="" class="img-thumbnail"> 
+              </div>
+              <div class="col-sm-2">
+                  <img src="" class="img-thumbnail"> 
+              </div>
+              <div class="col-sm-2">
+                  <img src="" class="img-thumbnail"> 
+              </div>
+              <div class="col-sm-2">
+                  <img src="" class="img-thumbnail"> 
+              </div>
+              <div class="col-sm-2">
+                  <img src="" class="img-thumbnail"> 
+              </div>
+            </div>
+          </div>
+        </form>
+
+        
       
 <br />
 
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        
-    </body>
+        <script src="js/index.js"></script>
+      </body>
 </html>
