@@ -27,7 +27,8 @@ module.exports = (sequelize, Datatypes) => {
         unique: true
       },
       password: Datatypes.STRING,
-      permission_level: Datatypes.INTEGER
+      permission_level: Datatypes.INTEGER,
+      userStatus: Datatypes.BOOLEAN
     },
     {
       hooks: {

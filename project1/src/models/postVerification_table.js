@@ -8,27 +8,26 @@ module.exports = (sequelize, DataTypes) => {
     },
     newPhotoPtr: {
       type: DataTypes.TEXT,
-      unique: true,
       allowNull: false
     },
     fingerprintOne: {
-      type: DataTypes.LONGBLOB,
+      type: DataTypes.BLOB("long"),
       allowNull: false
     },
     fingerprintTwo: {
-      type: DataTypes.LONGBLOB,
+      type: DataTypes.BLOB("long"),
       allowNull: false
     },
     fingerprintThree: {
-      type: DataTypes.LONGBLOB,
+      type: DataTypes.BLOB("long"),
       allowNull: false
     },
     fingerprintFour: {
-      type: DataTypes.LONGBLOB,
+      type: DataTypes.BLOB("long"),
       allowNull: false
     },
     thumb: {
-      type: DataTypes.LONGBLOB,
+      type: DataTypes.BLOB("long"),
       allowNull: false
     },
     idType: {
@@ -43,4 +42,6 @@ module.exports = (sequelize, DataTypes) => {
       default: "NONE"
     }
   });
+
+  return postVerification_table;
 };

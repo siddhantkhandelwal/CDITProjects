@@ -21,4 +21,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     userStatus: DataTypes.BOOLEAN
   });
+
+  return adminUsers_table;
 };
