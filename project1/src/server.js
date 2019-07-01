@@ -1,8 +1,5 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const faker = require("faker");
-const times = require("lodash.times");
-const random = require("lodash.random");
 const morgan = require("morgan");
 const cors = require("cors");
 const { sequelize } = require("./models");
@@ -13,6 +10,8 @@ app.use(morgan("combined"));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static("app/public"));
+
+require("./passport");
 
 require("./routes")(app);
 //{force: true}

@@ -2,11 +2,10 @@
   "name": "project1",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "./node_modules/nodemon/bin/nodemon.js ./src/server",
-    "seed": "node ./seed/index",
-    "sequelize-skeleton": "./node_modules/sequelize-cli/lib/sequelize init:models; ./node_modules/sequelize-cli/lib/sequelize init:config"
+    "start": "nodemon ./src/server",
+    "seed": "node seed/index"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +20,10 @@
     "morgan": "^1.9.1",
     "mysql": "^2.17.1",
     "mysql2": "^1.6.5",
-    "sequelize": "^5.8.9"
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "sequelize": "^5.8.9",
+    "sqlite3": "^4.0.9"
   },
   "devDependencies": {
     "faker": "^4.1.0",

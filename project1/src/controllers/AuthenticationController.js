@@ -3,9 +3,10 @@ const jwt = require("jsonwebtoken");
 const config = require("../config/config");
 
 function jwtSignUser(user) {
-  const ONE_WEEK = 60 * 60 * 24 * 7;
-  return jwt.sign(user, config.authentication.jwtSecret, {
-    expiresIn: ONE_WEEK
+  const { id, permission_level } = user;
+  const ONE_DAY = 60 * 60 * 24;
+  return jwt.sign({ id, permission_level }, config.authentication.jwtSecret, {
+    expiresIn: ONE_DAY
   });
 }
 
@@ -37,8 +38,12 @@ module.exports = {
           error: "The login info was incorrect"
         });
       }
+      if (!user.user_status) {
+        return res.status(403).send({
+          error: "The user is disabled"
+        });
+      }
       const isPasswordValid = await user.comparePassword(password);
-      console.log(isPasswordValid);
       if (!isPasswordValid) {
         return res.status(403).send({
           error: "The login info was incorrect"
