@@ -24,10 +24,23 @@ module.exports = (sequelize, Datatypes) => {
     {
       username: {
         type: Datatypes.STRING,
+        allowNull: false,
         unique: true
       },
-      password: Datatypes.STRING,
-      permission_level: Datatypes.INTEGER
+      password: {
+        type: Datatypes.STRING,
+        allowNull: false
+      },
+      permission_level: {
+        type: Datatypes.INTEGER,
+        allowNull: false,
+        defaultValue: 0
+      },
+      user_status: {
+        type: Datatypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: true
+      }
     },
     {
       hooks: {

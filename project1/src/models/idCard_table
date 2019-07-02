@@ -11,4 +11,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     idStatus: DataTypes.BOOLEAN
   });
+
+  return idCard_table;
 };

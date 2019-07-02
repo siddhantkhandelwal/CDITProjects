@@ -1,20 +1,21 @@
 const express = require("express");
-const bodyParser = require("body-parser");
-const faker = require("faker");
-const times = require("lodash.times");
-const random = require("lodash.random");
 const morgan = require("morgan");
 const cors = require("cors");
 const { sequelize } = require("./models");
 const config = require("./config/config");
+const path = require("path");
 
 const app = express();
-app.use(morgan("combined"));
-app.use(bodyParser.json());
-app.use(cors());
-app.use(express.static("app/public"));
 
+app.use(morgan("combined"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cors());
+app.use(express.static(path.join(__dirname, "public")));
+
+require("./passport");
 require("./routes")(app);
+
 //{force: true}
 sequelize.sync().then(() => {
   app.listen(config.port, () =>
