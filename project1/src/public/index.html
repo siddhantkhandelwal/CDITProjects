@@ -38,7 +38,7 @@
     <nav class="navbar navbar-dark bg-primary">
       <a class="navbar-brand" href="#">
         <img
-          src="1024px-BITS_Pilani-Logo.svg.png"
+          src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/BITS_Pilani-Logo.svg/1200px-BITS_Pilani-Logo.svg.png"
           width="30"
           height="30"
           class="d-inline-block align-top"
@@ -241,7 +241,7 @@
         return string.split(" ").join("");
       }
 
-      function doLogin() {
+      function login() {
         var userId = $("#inputId").val();
         var pass = $("#inputPassword").val();
         if (userId == "" || pass == "") {
@@ -261,8 +261,8 @@
         };
         $.post(settings)
           .done(function(response) {
-            console.log(response);
             localStorage.setItem("token", response.token);
+            location.href = "index.html";
           })
           .fail((jqXHR, textStatus, errorThrown) => {
             console.log(jqXHR.responseJSON.error);
@@ -271,7 +271,7 @@
       $(() => {
         $("#signin-form").submit(e => {
           e.preventDefault();
-          doLogin();
+          login();
         });
       });
     </script>
