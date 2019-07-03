@@ -8,6 +8,15 @@ module.exports = (sequelize, Datatypes) => {
       type: Datatypes.STRING,
       allowNull: false
     },
+    email: {
+      type: Datatypes.STRING,
+      allowNull: false,
+      unique: true
+    },
+    address: {
+      type: Datatypes.TEXT,
+      allowNull: false
+    },
     dateOfBirth: {
       type: Datatypes.STRING,
       allowNull: false
@@ -20,9 +29,13 @@ module.exports = (sequelize, Datatypes) => {
       type: Datatypes.STRING,
       allowNull: false
     },
+    photoPtr: {
+      type: Datatypes.TEXT,
+      allowNull: false
+    },
     /**POST-VERIFICATION DATA */
     newPhotoPtr: {
-      type: Datatypes.TEXT
+      type: Datatypes.BLOB("long")
     },
     fingerprintOne: {
       type: Datatypes.BLOB("long")

@@ -3,6 +3,25 @@ let rollNo;
 const Quality = 60;
 const TimeOut = 10;
 let fingerprintArray = null;
+
+toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": true,
+    "positionClass": "toast-top-center",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+};
+
 function assignToFinger(finger, imgSrc, isoTemplate) {
     switch (finger) {
         case "thumb":
@@ -43,11 +62,11 @@ function clearImages() {
 }
 
 function getFingerTemplate(finger) {
-    if (!rollNo) {
-        return alert('Please enter a rollno and click verify');
+    if (!rollNo || rollNo === '') {
+        return toastr.info('Please enter a rollno and click verify');
     }
     if (rollNo !== $("#rollNo").val()) {
-        return alert("New roll-number entered must first be verified");
+        return toastr.warning("New roll-number entered must first be verified");
     }
 
     const res = CaptureFinger(Quality, TimeOut);
@@ -55,26 +74,25 @@ function getFingerTemplate(finger) {
         if (res.data.ErrorCode === "0") {
             assignToFinger(finger, res.data.BitmapData, res.data.IsoTemplate);
         } else {
-            alert(`ERROR:  ${res.data.ErrorDescription} (${res.data.ErrorCode})`);
+            toastr.error(`ERROR:  ${res.data.ErrorDescription} (${res.data.ErrorCode})`);
         }
     } else {
-        alert(res.err);
+        toastr.error(res.err);
     }
 
     return false;
 }
 
 async function saveToDB() {
-    // console.log(biometricData);
-    if (!rollNo) {
-        return alert('Please enter a rollno and click verify');
+    if (!rollNo || rollNo === '') {
+        return toastr.info('Please enter a rollno and click verify');
     }
     if (rollNo !== $("#rollNo").val()) {
-        return alert("New roll-number entered must first be verified");
+        return toastr.warning("New roll-number entered must first be verified");
     }
     const jwtToken = localStorage.getItem("token");
     if (!jwtToken) {
-        alert("Fatal: No jwt token found. Login again");
+        toastr.error("Fatal: No jwt token found. Login again");
         setTimeout(() => {
             logout();
         }, 1000);
@@ -95,13 +113,12 @@ async function saveToDB() {
 
     try {
         return await $.ajax(settings).done(res => {
-            alert(res.message);
+            toastr.success(res.message);
             clearImages();
             $("#biometric-details").addClass("collapse");
         });
     } catch (jqXHR) {
-        console.log("ERROR");
-        console.log(jqXHR);
+        toastr.error(jqXHR.toString());
     }
 }
 
@@ -115,78 +132,60 @@ async function updateBiometric() {
     }
 }
 
-function matchFingerLcl() {
-    try {
-        var res = MatchFinger(Quality, TimeOut, biometricData.thumb);
-
-        if (res.httpStaus) {
-            if (res.data.Status) {
-                alert("Finger matched");
-            }
-            else {
-                if (res.data.ErrorCode != "0") {
-                    alert(res.data.ErrorDescription);
-                }
-                else {
-                    alert("Finger not matched");
-                }
-            }
-        }
-        else {
-            alert(res.err);
-        }
-    }
-    catch (e) {
-        alert(e);
-    }
-    return false;
-}
-
 async function matchFinger() {
     if (rollNo !== $("#rollNo").val() || fingerprintArray === null) {
         const res = await verifyRollno();
         if (!res) return;
-        fingerprintArray = [
-            _decryptBuffer(res.thumb.data),
-            _decryptBuffer(res.fingerprintOne.data),
-            _decryptBuffer(res.fingerprintTwo.data),
-            _decryptBuffer(res.fingerprintThree.data),
-            _decryptBuffer(res.fingerprintFour.data)
-        ];
+        try {
+            fingerprintArray = [
+                _decryptBuffer(res.thumb.data),
+                _decryptBuffer(res.fingerprintOne.data),
+                _decryptBuffer(res.fingerprintTwo.data),
+                _decryptBuffer(res.fingerprintThree.data),
+                _decryptBuffer(res.fingerprintFour.data)
+            ];
+        } catch (err) {
+            if (err instanceof TypeError) {
+                toastr.error("Update biometric details first", "Biometric Data Not Found");
+                return;
+            }
+            console.error(err);
+            return;
+        }
     }
     try {
         const fingerInput = CaptureFinger(Quality, TimeOut);
         if (fingerInput.httpStaus) {
             if (fingerInput.data.ErrorCode !== "0") {
-                alert(`ERROR:  ${fingerInput.data.ErrorDescription} (${fingerInput.data.ErrorCode})`);
+                toastr.error(`ERROR:  ${fingerInput.data.ErrorDescription} (${fingerInput.data.ErrorCode})`);
                 return;
             }
         } else {
-            alert(fingerInput.err);
+            toastr.error(fingerInput.err);
             return;
         }
         for (let fingerprint of fingerprintArray) {
             const verify = VerifyFinger(fingerInput.data.IsoTemplate, fingerprint);
             if (verify.httpStaus) {
                 if (verify.data.Status) {
-                    alert("Finger matched");
+                    toastr.success("Fingerprint matched", 'Verification Server');
                     return true;
                 }
                 else {
                     if (verify.data.ErrorCode != "0") {
-                        alert(verify.data.ErrorDescription);
+                        toastr.error(verify.data.ErrorDescription);
                     }
                 }
             }
             else {
-                alert(verify.err);
+                toastr.error(verify.err);
                 return;
             }
         }
     } catch (err) {
-        alert(err);
+        toastr.error(err);
     }
-    alert('Finger not matched');
+    toastr.warning('Fingerprint not verified', 'Verification server');
 }
 
 function logout() {
@@ -201,7 +200,7 @@ async function verifyRollno() {
 
     const jwtToken = localStorage.getItem("token");
     if (!jwtToken) {
-        alert("Fatal: No jwt token found. Login again");
+        toastr.error("Fatal: No jwt token found. Login again");
         setTimeout(() => {
             logout();
         }, 1000);
@@ -219,20 +218,25 @@ async function verifyRollno() {
     try {
         return await $.ajax(settings)
             .done((res) => {
-                $("#firstName").val(res.name);
+                // console.log(res);
+                $("#fullName").val(res.name);
+                $("#gender").val(res.gender);
                 $("#dob").val(res.dateOfBirth);
+                $("#candidate-img").attr('src', res.photoPtr);
+                $("#email").val(res.email);
                 $("#phone").val(res.mobileNo);
+                $("#currAddress").text(res.address);
+                $("#perAddress").text(res.address);
             });
     } catch (jqXHR) {
         if (jqXHR.status === 403) {
-            alert('Login expired. Please login again');
+            toastr.error('Login expired. Please login again');
             setTimeout(() => {
                 logout();
             }, 1000);
         } else {
-            alert(jqXHR.responseJSON.error);
+            toastr.error(jqXHR.responseJSON.error);
         }
-        console.error(jqXHR.responseJSON.error);
     }
 }
 
