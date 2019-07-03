@@ -2,56 +2,77 @@
   {
     "name": "Krishna Datta",
     "rollNo": "SUR738J",
+    "email": "kd@gmail.com",
+    "address": "Nisi laboris laboris ipsum excepteur laborum dolor tempor.",
     "dateOfBirth": "12-03-1999",
     "mobileNo": "9836273457",
-    "gender": "Male"
+    "gender": "Male",
+    "photoPtr": "https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/7_avatar-512.png"
   },
 
   {
     "name": "Suraj Menon",
     "rollNo": "JSO284K",
+    "email": "sm@gmail.com",
+    "address": "Nulla aute non sit tempor irure ad consequat.",
     "dateOfBirth": "04-09-1994",
     "mobileNo": "7726482910",
-    "gender": "Male"
+    "gender": "Male",
+    "photoPtr": "https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/7_avatar-512.png"
   },
 
   {
-    "name": "Darth Vader",
+    "name": "Rajath Reghunath",
     "rollNo": "ENT666M",
-    "dateOfBirth": "25-04-1986",
-    "mobileNo": "8912674827",
-    "gender": "Male"
+    "email": "rrgodhorus@gmail.com",
+    "address": "Commodo est labore qui consequat consequat est fugiat eiusmod irure ipsum non qui eu.",
+    "dateOfBirth": "01-01-2000",
+    "mobileNo": "9656542056",
+    "gender": "Male",
+    "photoPtr": "https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/7_avatar-512.png"
   },
 
   {
-    "name": "Ludacris",
+    "name": "Siddhant Khandelwal",
     "rollNo": "KSU836H",
+    "email": "sk@gmail.com",
+    "address": "Id et duis nulla duis incididunt deserunt cillum labore tempor consequat irure consequat incididunt.",
     "dateOfBirth": "09-11-1993",
     "mobileNo": "9378100472",
-    "gender": "Male"
+    "gender": "Male",
+    "photoPtr": "https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/7_avatar-512.png"
   },
 
   {
-    "name": "Harriet Tubman",
+    "name": "Adarsh Anand",
     "rollNo": "QJT911L",
+    "email": "aa@gmail.com",
+    "address": "Sunt est labore incididunt dolor incididunt.",
     "dateOfBirth": "18-10-1983",
     "mobileNo": "9845710388",
-    "gender": "Female"
+    "gender": "Male",
+    "photoPtr": "https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/7_avatar-512.png"
   },
 
   {
-    "name": "Moana Motunui",
+    "name": "Karthik Nair",
     "rollNo": "HAW018O",
+    "email": "kn@gmail.com",
+    "address": "Ullamco dolore dolor ut dolore culpa enim.",
     "dateOfBirth": "11-01-2003",
     "mobileNo": "7628194709",
-    "gender": "Female"
+    "gender": "Male",
+    "photoPtr": "https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/7_avatar-512.png"
   },
 
   {
-    "name": "Cleopatra",
+    "name": "Reshma John",
     "rollNo": "EGY789T",
+    "email": "rj@gmail.com",
+    "address": "Proident non proident proident aute anim do occaecat Lorem ipsum velit aute tempor cupidatat.",
     "dateOfBirth": "23-09-1956",
     "mobileNo": "9083459812",
-    "gender": "Female"
+    "gender": "Female",
+    "photoPtr": "https://www.w3schools.com/howto/img_avatar2.png"
   }
 ]

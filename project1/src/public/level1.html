@@ -31,6 +31,7 @@
       integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
   </head>
   <body>
     <nav class="navbar navbar-dark bg-primary">
@@ -115,107 +116,63 @@
       id="frmPersonalDetails"
     >
       <div style="padding-top: 8px;padding-bottom: 8px;">
+        
         <div class="form-group row">
-          <div class="col-sm-2">
-            <label for="firstName" class="col-form-label">First Name</label>
+          <div class="col-sm-6">
+                <div class="form-group row">
+                  <div class="col-sm-4">
+                    <label for="fullName" class="col-form-label">Full Name</label>
+                  </div>
+                  <div class="col-sm-8">
+                      <input
+                      type="text"
+                      class="form-control"
+                      id="fullName"
+                      placeholder="Full Name"
+                      disabled
+                    />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-4">
+                      <label for="gender" class="col-form-label">Gender</label>
+                  </div>
+                  <div class="col-sm-8">
+                      <input class="form-control" type="text" id="gender" disabled />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-4">
+                      <label for="dob" class="col-form-label">Date of Birth</label>
+                  </div>
+                  <div class="col-sm-8">
+                      <input
+                      type="text"
+                      class="form-control"
+                      id="dob"
+                      placeholder="dob"
+                      disabled
+                    />
+                  </div>
+                </div>
           </div>
-          <div class="col-sm-4">
-            <input
-              type="text"
-              class="form-control"
-              id="firstName"
-              placeholder="First Name"
-              disabled
-            />
+          <div class="col-sm-6 text-center">
+            <img width="40%" id="candidate-img" class="img-fluid" src="" alt="Candidate image">
           </div>
-          <div class="col-sm-2">
-            <label for="surName" class="col-form-label">Surname</label>
-          </div>
-          <div class="col-sm-4">
-            <input
-              type="text"
-              class="form-control"
-              id="surName"
-              placeholder="surName"
-              disabled
-            />
-          </div>
+        
         </div>
+
+        <div style="padding-top: 8px;padding-bottom: 8px;">
 
         <div class="form-group row">
           <div class="col-sm-2">
-            Gender
-          </div>
-          <div class="col-sm-1">
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="gridRadios"
-                id="gridRadios1"
-                value="option1"
-                disabled
-              />
-              <label class="form-check-label" for="gridRadios1">
-                Male
-              </label>
-            </div>
-          </div>
-          <div class="col-sm-1">
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="gridRadios"
-                id="gridRadios2"
-                value="option2"
-                disabled
-              />
-              <label class="form-check-label" for="gridRadios2s">
-                Female
-              </label>
-            </div>
-          </div>
-          <div class="col-sm-1">
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="gridRadios"
-                id="gridRadios3"
-                value="option3"
-                disabled
-              />
-              <label class="form-check-label" for="gridRadios3">
-                Others
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="form-group row">
-          <div class="col-sm-2">
-            <label for="dob" class="col-form-label">Date of Birth</label>
+            <label for="email" class="col-form-label">Email</label>
           </div>
           <div class="col-sm-4">
             <input
               type="text"
               class="form-control"
-              id="dob"
-              placeholder="dob"
-              disabled
-            />
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <div class="col-sm-2">
-            <label for="frmEmail" class="col-form-label">Email</label>
-          </div>
-          <div class="col-sm-4">
-            <input
-              type="text"
-              class="form-control"
-              id="frmEmail"
+              id="email"
               placeholder="Email"
               disabled
             />
@@ -391,6 +348,7 @@
       </form>
     </div>
     <br />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/mfs100_modified.js"></script>
     <script src="js/level1.js"></script>
