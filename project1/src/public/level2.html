@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Level 1 Form</title>
+    <title>Level 2 Form</title>
     <script>
       if (!localStorage.getItem("token")) {
         window.location.href = "index.html";
@@ -36,7 +36,7 @@
     <nav class="navbar navbar-dark bg-primary">
       <a class="navbar-brand" href="#">
         <img
-          src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/BITS_Pilani-Logo.svg/1200px-BITS_Pilani-Logo.svg.png"
+          src="1024px-BITS_Pilani-Logo.svg.png"
           width="30"
           height="30"
           class="d-inline-block align-top"
@@ -45,9 +45,7 @@
         BITSAT 2019
       </a>
       <span>
-        <button id="logoutBtn" type="button" class="btn btn-danger">
-          Logout
-        </button>
+        <button type="button" class="btn btn-danger">Logout</button>
       </span>
     </nav>
 
@@ -76,25 +74,19 @@
         <div class="col-md-4">
           <input
             type="text"
-            autocomplete
             class="form-control"
             id="rollNo"
             aria-describedby="rollNoHelp"
             placeholder="Roll Number"
           />
 
-          <small id="rollNoHelp" class="form-text text-muted pb-2"
+          <small id="rollNoHelp" class="form-text text-muted"
             >All details will be verified with Roll Number.</small
           >
         </div>
-        <div class="col-md-2 pb-2">
+        <div class="col-md-4">
           <button type="button" id="checkRollNo" class="btn btn-primary">
-            Update Biometric
-          </button>
-        </div>
-        <div class="col-md-2">
-          <button type="button" id="verifyCandidateBtn" class="btn btn-primary">
-            Verify Candidate
+            Verify
           </button>
         </div>
       </div>
@@ -221,13 +213,13 @@
             />
           </div>
           <div class="col-sm-2">
-            <label for="phone" class="col-form-label">Phone Number</label>
+            <label for="frmPhone" class="col-form-label">Phone Number</label>
           </div>
           <div class="col-sm-4">
             <input
               type="text"
               class="form-control"
-              id="phone"
+              id="frmPhone"
               placeholder="Phone Number"
               disabled
             />
@@ -302,97 +294,6 @@
         </div>
       </div>
     </form>
-
-    <div style="margin-top: 25px"></div>
-    <div id="biometric-details" class="collapse">
-      <div
-        class="container"
-        style="background:brown;color:white;border-left:1px black solid;border-right:1px black solid;border-top:1px black solid;"
-      >
-        Bio-Metric details
-      </div>
-      <form
-        class="container"
-        style="border: 1px solid black;"
-        id="frmBioDetails"
-      >
-        <div style="padding-top: 10px;padding-bottom: 10px;">
-          <div class="form-group row">
-            <div class="col-sm-2">
-              <!-- <button type="button" class="btn btn-primary" id="photoBtn"> -->
-              Upload Photo
-              <input
-                class="btn btn-primary"
-                id="photoBtn"
-                type="file"
-                accept="image/png, image/jpeg"
-              />
-              <!-- </button> -->
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <div class="col-sm-2">
-              <img id="face-img" src="" class="img-thumbnail" />
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <div class="col-sm-2">
-              <button type="button" class="btn btn-primary" id="thumbButton">
-                Thumb
-              </button>
-            </div>
-            <div class="col-sm-2">
-              <button type="button" class="btn btn-primary" id="indexButton">
-                Index Finger
-              </button>
-            </div>
-            <div class="col-sm-2">
-              <button type="button" class="btn btn-primary" id="middleButton">
-                Middle Finger
-              </button>
-            </div>
-            <div class="col-sm-2">
-              <button type="button" class="btn btn-primary" id="ringButton">
-                Ring Finger
-              </button>
-            </div>
-            <div class="col-sm-2">
-              <button type="button" class="btn btn-primary" id="littleButton">
-                Little Finger
-              </button>
-            </div>
-          </div>
-          <div class="form-group row">
-            <div class="col-sm-2">
-              <img id="thumb-img" src="" class="img-thumbnail" />
-            </div>
-            <div class="col-sm-2">
-              <img id="index-img" src="" class="img-thumbnail" />
-            </div>
-            <div class="col-sm-2">
-              <img id="middle-img" src="" class="img-thumbnail" />
-            </div>
-            <div class="col-sm-2">
-              <img id="ring-img" src="" class="img-thumbnail" />
-            </div>
-            <div class="col-sm-2">
-              <img id="little-img" src="" class="img-thumbnail" />
-            </div>
-          </div>
-          <div class="container">
-            <button type="button" class="btn btn-primary" id="saveBtn">
-              Save
-            </button>
-          </div>
-          <br />
-        </div>
-      </form>
-    </div>
     <br />
-    <script src="js/utils.js"></script>
-    <script src="js/mfs100_modified.js"></script>
-    <script src="js/level1.js"></script>
   </body>
 </html>

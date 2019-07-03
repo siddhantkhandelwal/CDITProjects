@@ -46,7 +46,8 @@ module.exports = {
           "fingerprintTwo",
           "fingerprintThree",
           "fingerprintFour",
-          "thumb"
+          "thumb",
+          "newPhotoPtr"
         ]
       });
       if (result[0] === 0) {
