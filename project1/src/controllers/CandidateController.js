@@ -20,8 +20,6 @@ module.exports = {
           error: "Candidate not found"
         });
       }
-      // const test = Buffer.from(JSON.stringify(candidate.fingerprintOne.data));
-      // console.log(test);
       res.send(candidate);
     } catch (err) {
       console.log(err);
