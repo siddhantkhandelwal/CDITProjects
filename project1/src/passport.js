@@ -12,7 +12,7 @@ passport.use(
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       secretOrKey: config.authentication.jwtSecret
     },
-    async function(jwtPayload, done) {
+    async function (jwtPayload, done) {
       try {
         const user = await Users.findOne({
           where: {
