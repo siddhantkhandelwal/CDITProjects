@@ -51,7 +51,7 @@ module.exports = (sequelize, Datatypes) => {
     }
   );
 
-  Users.prototype.comparePassword = function(password) {
+  Users.prototype.comparePassword = function (password) {
     return bcrypt.compare(password, this.password);
   };
 
