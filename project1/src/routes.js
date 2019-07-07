@@ -1,6 +1,7 @@
 const AuthenticationController = require("./controllers/AuthenticationController");
 const CandidateController = require("./controllers/CandidateController");
 const CandidateControllerPolicy = require("./policies/CandidateControllerPolicy");
+const AdminController = require("./controllers/AdminController");
 
 const isAuthenticated = require("./policies/isAuthenticated");
 module.exports = app => {
@@ -18,4 +19,6 @@ module.exports = app => {
     CandidateControllerPolicy.updateBiometricData,
     CandidateController.updateBiometricData
   );
+  app.post("/api/level", AdminController.switchLevel);
+  app.post('/api/getLevel', AdminController.getLevel);
 };
