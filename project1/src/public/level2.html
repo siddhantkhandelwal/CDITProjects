@@ -1,299 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Level 2 Form</title>
-    <script>
-      if (!localStorage.getItem("token")) {
-        window.location.href = "index.html";
-      }
-    </script>
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <nav class="navbar navbar-dark bg-primary">
-      <a class="navbar-brand" href="#">
-        <img
-          src="1024px-BITS_Pilani-Logo.svg.png"
-          width="30"
-          height="30"
-          class="d-inline-block align-top"
-          alt=""
-        />
-        BITSAT 2019
-      </a>
-      <span>
-        <button type="button" class="btn btn-danger">Logout</button>
-      </span>
-    </nav>
 
-    <br />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Level 2 Form</title>
+  <script>
+    if (!localStorage.getItem("token")) {
+      window.location.href = "index.html";
+    }
+  </script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+</head>
 
-    <div class="container">
-      <h4 style="text-align: center">ONLINE VERIFICATION PORTAL</h4>
+<body>
+  <nav class="navbar navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">
+      <img src="1024px-BITS_Pilani-Logo.svg.png" width="30" height="30" class="d-inline-block align-top" alt="" />
+      BITSAT 2019
+    </a>
+    <span>
+      <button type="button" class="btn btn-danger">Logout</button>
+    </span>
+  </nav>
+
+  <br />
+
+  <div class="container">
+    <h4 style="text-align: center">ONLINE VERIFICATION PORTAL</h4>
+  </div>
+
+  <br />
+
+  <div class="container"
+    style="background:brown;color:white;border-left:1px black solid;border-right:1px black solid;border-top:1px black solid;">
+    Search Candidates
+  </div>
+
+  <form class="container" style="border: 1px solid black;" id="frmExamCredentials">
+    <div class="form-group row" style="padding-top: 8px;padding-bottom: 8px;">
+      <label for="rollNo" class="col-sm-2 col-form-label">Roll Number</label>
+      <div class="col-md-4">
+        <input type="text" class="form-control" id="rollNo" aria-describedby="rollNoHelp" placeholder="Roll Number" />
+
+        <small id="rollNoHelp" class="form-text text-muted">All details will be verified with Roll Number.</small>
+      </div>
+      <div class="col-md-4">
+        <button type="button" id="checkRollNo" class="btn btn-primary">
+          Verify
+        </button>
+      </div>
     </div>
+  </form>
 
-    <br />
+  <div style="margin-top: 25px"></div>
 
-    <div
-      class="container"
-      style="background:brown;color:white;border-left:1px black solid;border-right:1px black solid;border-top:1px black solid;"
-    >
-      Search Candidates
-    </div>
+  <div class="container"
+    style="background:brown;color:white;border-left:1px black solid;border-right:1px black solid;border-top:1px black solid;">
+    Personal Details
+  </div>
 
-    <form
-      class="container"
-      style="border: 1px solid black;"
-      id="frmExamCredentials"
-    >
-      <div class="form-group row" style="padding-top: 8px;padding-bottom: 8px;">
-        <label for="rollNo" class="col-sm-2 col-form-label">Roll Number</label>
-        <div class="col-md-4">
-          <input
-            type="text"
-            class="form-control"
-            id="rollNo"
-            aria-describedby="rollNoHelp"
-            placeholder="Roll Number"
-          />
-
-          <small id="rollNoHelp" class="form-text text-muted"
-            >All details will be verified with Roll Number.</small
-          >
+  <form class="container" style="border: 1px solid black;" id="frmPersonalDetails">
+    <div style="padding-top: 8px;padding-bottom: 8px;">
+      <div class="form-group row">
+        <div class="col-sm-2">
+          <label for="firstName" class="col-form-label">First Name</label>
         </div>
-        <div class="col-md-4">
-          <button type="button" id="checkRollNo" class="btn btn-primary">
-            Verify
-          </button>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="firstName" placeholder="First Name" disabled />
+        </div>
+        <div class="col-sm-2">
+          <label for="surName" class="col-form-label">Surname</label>
+        </div>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="surName" placeholder="surName" disabled />
         </div>
       </div>
-    </form>
 
-    <div style="margin-top: 25px"></div>
-
-    <div
-      class="container"
-      style="background:brown;color:white;border-left:1px black solid;border-right:1px black solid;border-top:1px black solid;"
-    >
-      Personal Details
-    </div>
-
-    <form
-      class="container"
-      style="border: 1px solid black;"
-      id="frmPersonalDetails"
-    >
-      <div style="padding-top: 8px;padding-bottom: 8px;">
-        <div class="form-group row">
-          <div class="col-sm-2">
-            <label for="firstName" class="col-form-label">First Name</label>
-          </div>
-          <div class="col-sm-4">
-            <input
-              type="text"
-              class="form-control"
-              id="firstName"
-              placeholder="First Name"
-              disabled
-            />
-          </div>
-          <div class="col-sm-2">
-            <label for="surName" class="col-form-label">Surname</label>
-          </div>
-          <div class="col-sm-4">
-            <input
-              type="text"
-              class="form-control"
-              id="surName"
-              placeholder="surName"
-              disabled
-            />
+      <div class="form-group row">
+        <div class="col-sm-2">
+          Gender
+        </div>
+        <div class="col-sm-1">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" disabled />
+            <label class="form-check-label" for="gridRadios1">
+              Male
+            </label>
           </div>
         </div>
-
-        <div class="form-group row">
-          <div class="col-sm-2">
-            Gender
-          </div>
-          <div class="col-sm-1">
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="gridRadios"
-                id="gridRadios1"
-                value="option1"
-                disabled
-              />
-              <label class="form-check-label" for="gridRadios1">
-                Male
-              </label>
-            </div>
-          </div>
-          <div class="col-sm-1">
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="gridRadios"
-                id="gridRadios2"
-                value="option2"
-                disabled
-              />
-              <label class="form-check-label" for="gridRadios2s">
-                Female
-              </label>
-            </div>
-          </div>
-          <div class="col-sm-1">
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="gridRadios"
-                id="gridRadios3"
-                value="option3"
-                disabled
-              />
-              <label class="form-check-label" for="gridRadios3">
-                Others
-              </label>
-            </div>
+        <div class="col-sm-1">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" disabled />
+            <label class="form-check-label" for="gridRadios2s">
+              Female
+            </label>
           </div>
         </div>
-        <div class="form-group row">
-          <div class="col-sm-2">
-            <label for="dob" class="col-form-label">Date of Birth</label>
-          </div>
-          <div class="col-sm-4">
-            <input
-              type="text"
-              class="form-control"
-              id="dob"
-              placeholder="dob"
-              disabled
-            />
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <div class="col-sm-2">
-            <label for="frmEmail" class="col-form-label">Email</label>
-          </div>
-          <div class="col-sm-4">
-            <input
-              type="text"
-              class="form-control"
-              id="frmEmail"
-              placeholder="Email"
-              disabled
-            />
-          </div>
-          <div class="col-sm-2">
-            <label for="frmPhone" class="col-form-label">Phone Number</label>
-          </div>
-          <div class="col-sm-4">
-            <input
-              type="text"
-              class="form-control"
-              id="frmPhone"
-              placeholder="Phone Number"
-              disabled
-            />
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <div class="col-sm-2">
-            <label for="currAddress">Current Address</label>
-          </div>
-          <div class="col-sm-4">
-            <textarea
-              class="form-control rounded-0"
-              id="currAddress"
-              rows="4"
-              disabled
-            ></textarea>
-          </div>
-          <div class="col-sm-2">
-            <label for="perAddress">Permanent Address</label>
-          </div>
-          <div class="col-sm-4">
-            <textarea
-              class="form-control rounded-0"
-              id="perAddress"
-              rows="4"
-              disabled
-            ></textarea>
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <div class="col-sm-2">
-            <label for="fatherName" class="col-form-label">Father's Name</label>
-          </div>
-          <div class="col-sm-4">
-            <input
-              type="text"
-              class="form-control"
-              id="fatherName"
-              placeholder="Father's Name"
-              disabled
-            />
-          </div>
-          <div class="col-sm-2">
-            <label for="motherName" class="col-form-label">Mother's name</label>
-          </div>
-          <div class="col-sm-4">
-            <input
-              type="text"
-              class="form-control"
-              id="surName"
-              placeholder="Mother's name"
-              disabled
-            />
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <div class="col-sm-2">
-            <label for="community" class="col-form-label">Community</label>
-          </div>
-          <div class="col-sm-4">
-            <input
-              type="text"
-              class="form-control"
-              id="community"
-              placeholder="Community"
-              disabled
-            />
+        <div class="col-sm-1">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled />
+            <label class="form-check-label" for="gridRadios3">
+              Others
+            </label>
           </div>
         </div>
       </div>
-    </form>
-    <br />
-  </body>
+      <div class="form-group row">
+        <div class="col-sm-2">
+          <label for="dob" class="col-form-label">Date of Birth</label>
+        </div>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="dob" placeholder="dob" disabled />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-2">
+          <label for="frmEmail" class="col-form-label">Email</label>
+        </div>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="frmEmail" placeholder="Email" disabled />
+        </div>
+        <div class="col-sm-2">
+          <label for="frmPhone" class="col-form-label">Phone Number</label>
+        </div>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="frmPhone" placeholder="Phone Number" disabled />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-2">
+          <label for="currAddress">Current Address</label>
+        </div>
+        <div class="col-sm-4">
+          <textarea class="form-control rounded-0" id="currAddress" rows="4" disabled></textarea>
+        </div>
+        <div class="col-sm-2">
+          <label for="perAddress">Permanent Address</label>
+        </div>
+        <div class="col-sm-4">
+          <textarea class="form-control rounded-0" id="perAddress" rows="4" disabled></textarea>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-2">
+          <label for="fatherName" class="col-form-label">Father's Name</label>
+        </div>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="fatherName" placeholder="Father's Name" disabled />
+        </div>
+        <div class="col-sm-2">
+          <label for="motherName" class="col-form-label">Mother's name</label>
+        </div>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="surName" placeholder="Mother's name" disabled />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-2">
+          <label for="community" class="col-form-label">Community</label>
+        </div>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="community" placeholder="Community" disabled />
+        </div>
+      </div>
+    </div>
+  </form>
+  <br />
+</body>
+
 </html>

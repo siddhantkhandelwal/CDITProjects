@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <script>
+    if (!localStorage.getItem("token")) {
+      window.location.href = "index.html";
+    }
+  </script>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+  <title>Admin Page</title>
+</head>
+
+<body>
+  <!--navbar-->
+  <nav class="navbar navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">
+      <!-- <img src="1024px-BITS_Pilani-Logo.svg.png" width="30" height="30" class="d-inline-block align-top" alt="" /> -->
+      BITSAT 2019
+    </a>
+    <span>
+      <button id="logoutBtn" type="button" class="btn btn-danger">
+        Logout
+      </button>
+    </span>
+  </nav>
+  <br />
+  <!--header-->
+  <div class="container">
+    <center>
+      <h4>ADMIN PAGE</h4>
+    </center>
+  </div>
+  <!--form-->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card my-5">
+          <div class="card-body">
+            <form>
+              <!-- <div class="form-group">
+                <label for="ExamName">Name of the Exam</label>
+                <select class="form-control" id="ExamName">
+                  <option>Choose</option>
+                  <option>JEE Main</option>
+                  <option>JEE Advanced</option>
+                  <option>WBJEE</option>
+                  <option>KSAT</option>
+                </select>
+              </div> -->
+              <div class="form-group">
+                <label for="ExamLevel">Level of the Exam</label><br />
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Level 1" value="option1">
+                  <label class="form-check-label" for="Level 1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Level 2" value="option2">
+                  <label class="form-check-label" for="Level 2">2</label>
+                </div>
+              </div>
+              <!-- <div class="form-group">
+                <label for="ExamDuration">Duration of the Exam</label><br />
+                <select class="form-control form-check-inline col-md-5" id="ExamDuration">
+                  <option>Hour(s)</option>
+                  <option>1 Hour</option>
+                  <option>2 Hours</option>
+                  <option>3 Hours</option>
+                  <option>4 Hours</option>
+                  <select>
+                    <select class="form-control form-check-inline col-md-5" id="ExamDuration">
+                      <option>Minutes</option>
+                      <option>0 Minutes</option>
+                      <option>15 Minutes</option>
+                      <option>30 Minutes</option>
+                      <option>45 Minutes</option>
+                    </select>
+              </div> -->
+              <!-- <div class="form-group">
+                <label>ID cards allowed for verification</label><br />
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" value="" id="Aadhar">
+                  <label class="form-check-label" for="Aadhar">
+                    Aadhar Card
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" value="" id="PAN">
+                  <label class="form-check-label" for="PAN">
+                    Pan Card
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" value="" id="School_ID">
+                  <label class="form-check-label" for="School_ID">
+                    School ID
+                  </label>
+                </div>
+              </div> -->
+              <center>
+                <div class="form-group">
+                  <button class="btn btn-primary" type="submit" id="StartExam">Submit</button>
+                  <!-- <button class="btn btn-danger" type="submit">Close Exam</button> -->
+                </div>
+              </center>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Script tags-->
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <script src="js/admin.js"></script>
+
+</body>
+
+</html>
