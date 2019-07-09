@@ -29,9 +29,7 @@
 <body>
   <!--navbar-->
   <nav class="navbar navbar-dark bg-primary">
-    <a class="navbar-brand" href="#">
-      <!-- <img src="1024px-BITS_Pilani-Logo.svg.png" width="30" height="30" class="d-inline-block align-top" alt="" /> -->
-      BITSAT 2019
+    <a class="navbar-brand" href="#" id="ExamName">
     </a>
     <span>
       <button id="logoutBtn" type="button" class="btn btn-danger">
@@ -53,45 +51,22 @@
         <div class="card my-5">
           <div class="card-body">
             <form id="switch-level">
-              <!-- <div class="form-group">
-                <label for="ExamName">Name of the Exam</label>
-                <select class="form-control" id="ExamName">
-                  <option>Choose</option>
-                  <option>JEE Main</option>
-                  <option>JEE Advanced</option>
-                  <option>WBJEE</option>
-                  <option>KSAT</option>
-                </select>
-              </div> -->
               <div class="form-group">
-                <label id="LevelExam" for="ExamLevel">Current Level of the Exam: </label><br />
+                <label for="ExamName">Exam Name</label>
+                <input type="text" id="ExamName">
+              </div>
+              <div class="form-group">
+                <label id="LevelExam" for="ExamLevel"></label><br />
                 <!-- <p id="LevelExam"></p> -->
-                <!-- <div class="form-check form-check-inline">
+                <div class="form-check form-check-inline">
                   <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Level 1" value="1">
-                  <label class="form-check-label" for="Level 1">1</label>
+                  <label class="form-check-label" for="Level 1">Level 1</label>
                 </div>
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Level 2" value="2">
-                  <label class="form-check-label" for="Level 2">2</label>
-                </div> -->
+                  <label class="form-check-label" for="Level 2">Level 2</label>
+                </div>
               </div>
-              <!-- <div class="form-group">
-                <label for="ExamDuration">Duration of the Exam</label><br />
-                <select class="form-control form-check-inline col-md-5" id="ExamDuration">
-                  <option>Hour(s)</option>
-                  <option>1 Hour</option>
-                  <option>2 Hours</option>
-                  <option>3 Hours</option>
-                  <option>4 Hours</option>
-                  <select>
-                    <select class="form-control form-check-inline col-md-5" id="ExamDuration">
-                      <option>Minutes</option>
-                      <option>0 Minutes</option>
-                      <option>15 Minutes</option>
-                      <option>30 Minutes</option>
-                      <option>45 Minutes</option>
-                    </select>
-              </div> -->
               <!-- <div class="form-group">
                 <label>ID cards allowed for verification</label><br />
                 <div class="form-check form-check-inline">
@@ -115,7 +90,7 @@
               </div> -->
               <center>
                 <div class="form-group">
-                  <button class="btn btn-primary" type="submit" id="saveBtn">Switch</button>
+                  <button class="btn btn-primary" type="submit" id="saveBtn">Submit</button>
                   <!-- <button class="btn btn-danger" type="submit">Close Exam</button> -->
                 </div>
               </center>
