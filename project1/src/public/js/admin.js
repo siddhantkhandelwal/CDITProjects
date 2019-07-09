@@ -60,7 +60,7 @@ async function getExamName() {
             .done((res) => {
                 // console.log(res);
                 examName = res.examName;
-                document.getElementById('ExamName').innerHTML = res.examName;
+                document.getElementById('ExamNameNav').innerHTML = res.examName;
             });
     } catch (jqXHR) {
         if (jqXHR.status === 403) {
@@ -87,7 +87,7 @@ async function saveToDB() {
     }
     requestdata = {}
     requestdata.levelIndex = levelIndex;
-    requestdata.examName = examName;
+    requestdata.examName = document.getElementById("ExamName").value;
     const jsonData = JSON.stringify(requestdata);
     // console.log(jsonData);
     const settings = {
@@ -106,6 +106,7 @@ async function saveToDB() {
         return await $.ajax(settings).done(res => {
             // toastr.success(res.message);
             levelIndex = res.levelIndex;
+            examName = res.examName;
         });
     } catch (jqXHR) {
         toastr.error(jqXHR.toString());

@@ -5,6 +5,7 @@ module.exports = {
     try {
       let level = await Levels.findByPk("0");
       let exam = await Exams.findByPk("0");
+      console.log(exam);
       if (!level || !exam) {
         return res.status(404).send({
           error: "Exam/Level not found"
@@ -31,11 +32,11 @@ module.exports = {
           error: "No field to be updated."
         });
       }
-      // level = await Levels.findByPk("0");
+      level = await Levels.findByPk("0");
+      exam = await Exams.findByPk("0");
       response = {};
       response.level = level;
       response.exam = exam;
-      console.log(response);
       res.send(response);
     } catch (err) {
       console.log(err);
