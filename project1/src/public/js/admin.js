@@ -111,7 +111,8 @@ async function saveToDB() {
     } catch (jqXHR) {
         toastr.error(jqXHR.toString());
     }
-    document.location.reload();
+    document.getElementById("ExamNameNav").value = examName;
+    document.getElementById('LevelExam').innerHTML = "Current Level of the Exam: " + levelIndex;
 }
 
 $(() => {

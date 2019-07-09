@@ -22,6 +22,38 @@ toastr.options = {
     "hideMethod": "fadeOut"
 };
 
+async function getExamName() {
+    const jwtToken = localStorage.getItem("token");
+    if (!jwtToken) {
+        logout();
+    }
+    const settings = {
+        async: true,
+        method: "GET",
+        url: `api/getExamName/`,
+        headers: {
+            Authorization: `Bearer ${jwtToken}`
+        }
+    };
+    try {
+        return await $.ajax(settings)
+            .done((res) => {
+                // console.log(res);
+                examName = res.examName;
+                document.getElementById('ExamNameNav').innerHTML = res.examName;
+            });
+    } catch (jqXHR) {
+        if (jqXHR.status === 403) {
+            toastr.error('Login expired. Please login again');
+            setTimeout(() => {
+                logout();
+            }, 1000);
+        } else {
+            toastr.error(jqXHR.responseJSON.error);
+        }
+    }
+}
+
 function assignToFinger(finger, imgSrc, isoTemplate) {
     switch (finger) {
         case "thumb":
@@ -281,4 +313,5 @@ function initListeners() {
 $(() => {
     clearImages();
     initListeners();
+    getExamName();
 });
