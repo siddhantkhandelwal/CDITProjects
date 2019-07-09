@@ -67,6 +67,7 @@ module.exports = {
       const userJson = user.toJSON();
       res.send({
         user: userJson,
+        permission_level: user.permission_level,
         token: jwtSignUser(userJson)
       });
     } catch (err) {
