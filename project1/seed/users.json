@@ -3,5 +3,10 @@
     "username": "admin123",
     "password": "password123",
     "permission_level": 3
+  },
+  {
+    "username": "examiner",
+    "password": "password",
+    "permission_level": 2
   }
 ]
