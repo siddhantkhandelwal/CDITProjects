@@ -41,7 +41,12 @@ function login() {
     $.post(settings)
         .done(function (response) {
             localStorage.setItem("token", response.token);
-            location.href = "index.html";
+            if (response.permission_level == 3) {
+                location.href = "admin.html";
+            }
+            else {
+                location.href = "level1.html";
+            }
         })
         .fail((jqXHR, textStatus, errorThrown) => {
             toastr.error(jqXHR.responseJSON.error);
