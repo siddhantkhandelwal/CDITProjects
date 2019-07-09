@@ -1,0 +1,43 @@
+CREATE TABLE IF NOT EXISTS `tbl_candidates` (
+  `intCandidateID` int(11) NOT NULL,
+  `intUserTypeID` int(11) NOT NULL,
+  `vchrCandidateName` varchar(30) NOT NULL,
+  `vchrCandidateRollNo` varchar(20) NOT NULL,
+  `vchrBarcodeNO` varchar(20) NOT NULL,
+  `vchrCandidateAddress` varchar(100) NOT NULL,
+  `vchrCandidateEmail` varchar(20) NOT NULL,
+  `vchrCandidatePhone` varchar(20) NOT NULL,
+  `dteCandidateDob` date NOT NULL,
+  `intDistrict_Cd` varchar(2) NOT NULL, -----
+  `intAlphaCodeID` int(11) NOT NULL, ----
+  `intExamDistrictID` int(11) NOT NULL,----
+  `intExamCenterID` int(11) NOT NULL,----
+  `intExamID` int(11) NOT NULL,----
+  `vchrCandidateUserName` varchar(8) NOT NULL,
+  `vchrCandidtatePassword` varchar(20) NOT NULL,
+  `vchrCandidatePhoto` varchar(20) NOT NULL,
+  `intTimeExtended` time NOT NULL, ----
+  `vchrCandidateIp` varchar(20) NOT NULL, ----
+  `intUserID` int(11) NOT NULL, ----
+  `intStatus` int(11) NOT NULL DEFAULT '1', ----
+  `chrPH` char(1) NOT NULL, ????
+  `chrRes_gp` char(1) NOT NULL, ????
+  `chrEX` char(1) NOT NULL, ????
+  `chrSP` char(1) NOT NULL, ????
+  `cand_cd` varchar(12) NOT NULL, ????
+  `cand_user_cd` varchar(30) NOT NULL, ????
+  `reserve_grp_det` varchar(60) NOT NULL, ????
+  `cand_id_marks` varchar(200) NOT NULL, ????
+  `cand_sex` varchar(1) NOT NULL,
+  `debar_status` int(11) NOT NULL,
+  `debar_remarks` varchar(400) NOT NULL,
+  `debar_time` datetime NOT NULL,
+  `IntPattern_ID` int(11) NOT NULL,
+  `vchrSeatno` varchar(10) NOT NULL, ----
+  `intbatch_id` int(11) NOT NULL, ----
+  `tmLastActivity` time DEFAULT NULL ----
+) ENGINE=InnoDB AUTO_INCREMENT=848 DEFAULT CHARSET=utf8;
+ALTER TABLE `tbl_candidates`
+  ADD PRIMARY KEY (`intCandidateID`), ADD KEY `FK_tbl_candidates` (`intExamDistrictID`), ADD KEY `FK_tbl_candidates2` (`intExamCenterID`), ADD KEY `FK_tbl_candidates4` (`intExamID`), ADD KEY `FK_tbl_candidates3` (`intUserID`), ADD KEY `vchrCandidateRollNo` (`vchrCandidateRollNo`);
+ALTER TABLE `tbl_candidates`
+  MODIFY `intCandidateID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1;

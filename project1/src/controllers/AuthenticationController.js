@@ -1,5 +1,6 @@
 const { Users } = require("../models");
 const jwt = require("jsonwebtoken");
+const request = require('request-promise');
 const config = require("../config/config");
 
 function jwtSignUser(user) {
@@ -27,7 +28,7 @@ module.exports = {
   },
   async login(req, res) {
     try {
-      const { username, password } = req.body;
+      const { username, password, captcha } = req.body;
       const user = await Users.findOne({
         where: {
           username: username
@@ -49,7 +50,20 @@ module.exports = {
           error: "The login info was incorrect"
         });
       }
+      //Secret key
+      const secretKey = '6LetqqwUAAAAABpIk1y8j_QHQmSewfOs0QdsYEk3';
 
+      //Verify URL
+      const verifyUrl = `https://google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captcha}&remoteip=${req.connection.remoteAddress}`
+
+      //Make request to verify URL
+      const captchaVerification = await request(verifyUrl);
+      const captchaVerificationJSON = JSON.parse(captchaVerification);
+      if (!captchaVerificationJSON.success) {
+        res.status(401).send({
+          error: "Captcha verification failed"
+        });
+      }
       const userJson = user.toJSON();
       res.send({
         user: userJson,

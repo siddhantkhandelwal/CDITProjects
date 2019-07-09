@@ -118,7 +118,7 @@ async function saveToDB() {
             $("#biometric-details").addClass("collapse");
         });
     } catch (jqXHR) {
-        toastr.error(jqXHR.toString());
+        toastr.error(jqXHR.responseJSON.error);
     }
 }
 
@@ -144,6 +144,9 @@ async function matchFinger() {
                 _decryptBuffer(res.fingerprintThree.data),
                 _decryptBuffer(res.fingerprintFour.data)
             ];
+            //ToDo: A toaster after clicking on the Verify Cand button 
+            // await toastr.success('Place your finger on the scanner.');
+            // console.log("TEST");
         } catch (err) {
             if (err instanceof TypeError) {
                 toastr.error("Update biometric details first", "Biometric Data Not Found");
@@ -154,6 +157,7 @@ async function matchFinger() {
         }
     }
     try {
+
         const fingerInput = CaptureFinger(Quality, TimeOut);
         if (fingerInput.httpStaus) {
             if (fingerInput.data.ErrorCode !== "0") {
@@ -248,6 +252,7 @@ function encodeImageFileAsURL() {
         const fileReader = new FileReader();
 
         fileReader.onload = function (fileLoadedEvent) {
+            console.log(fileLoadedEvent);
             const srcData = fileLoadedEvent.target.result; // <--- data: base64
             $("#face-img").attr('src', srcData);
             biometricData.newPhotoPtr = srcData;
