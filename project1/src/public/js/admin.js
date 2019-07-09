@@ -50,20 +50,27 @@ async function saveToDB() {
         }, 1000);
         return await false;
     }
-    // const jsonData = JSON.stringify(levelIndex);
+    const jsonData = JSON.stringify(levelIndex);
     const settings = {
-        // async: true,
-        method: "POST",
-        url: `api/setLevel/`,
+        async: true,
+        // method: "POST",
+        url: "api/setLevel/",
         headers: {
             Authorization: `Bearer ${jwtToken}`
         },
         contentType: 'application/json; charset=utf-8',
-        // dataType: 'json',
-        // processData: false,
-        // data: jsonData
+        dataType: 'json',
+        processData: false,
+        data: jsonData
     }
-
+    // $.post(settings)
+    //     .done(function (response) {
+    //         // localStorage.setItem("token", response.token);
+    //         levelIndex = res.levelIndex
+    //     })
+    //     .fail((jqXHR, textStatus, errorThrown) => {
+    //         console.log(jqXHR.responseJSON.error);
+    //     });
     try {
         return await $.ajax(settings).done(res => {
             // toastr.success(res.message);
