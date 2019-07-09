@@ -19,6 +19,6 @@ module.exports = app => {
     CandidateControllerPolicy.updateBiometricData,
     CandidateController.updateBiometricData
   );
-  app.post("/api/level", AdminController.switchLevel);
-  app.post('/api/getLevel', AdminController.getLevel);
+  app.post("/api/setLevel", AdminController.switchLevel);
+  app.get("/api/getLevel", AdminController.getLevel);
 };

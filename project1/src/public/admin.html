@@ -52,7 +52,7 @@
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card my-5">
           <div class="card-body">
-            <form>
+            <form id="switch-level">
               <!-- <div class="form-group">
                 <label for="ExamName">Name of the Exam</label>
                 <select class="form-control" id="ExamName">
@@ -64,15 +64,16 @@
                 </select>
               </div> -->
               <div class="form-group">
-                <label for="ExamLevel">Level of the Exam</label><br />
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Level 1" value="option1">
+                <label id="LevelExam" for="ExamLevel">Current Level of the Exam: </label><br />
+                <!-- <p id="LevelExam"></p> -->
+                <!-- <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Level 1" value="1">
                   <label class="form-check-label" for="Level 1">1</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Level 2" value="option2">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Level 2" value="2">
                   <label class="form-check-label" for="Level 2">2</label>
-                </div>
+                </div> -->
               </div>
               <!-- <div class="form-group">
                 <label for="ExamDuration">Duration of the Exam</label><br />
@@ -114,7 +115,7 @@
               </div> -->
               <center>
                 <div class="form-group">
-                  <button class="btn btn-primary" type="submit" id="StartExam">Submit</button>
+                  <button class="btn btn-primary" type="submit" id="saveBtn">Switch</button>
                   <!-- <button class="btn btn-danger" type="submit">Close Exam</button> -->
                 </div>
               </center>
@@ -128,7 +129,14 @@
   <script type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
   <script src="js/admin.js"></script>
-
+  <script>
+    $(() => {
+      $("#switch-level").submit(e => {
+        e.preventDefault();
+        saveToDB();
+      });
+    });
+  </script>
 </body>
 
 </html>
