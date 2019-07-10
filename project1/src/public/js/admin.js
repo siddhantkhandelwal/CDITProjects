@@ -79,11 +79,11 @@ async function saveToDB() {
     if (!jwtToken) {
         logout();
     }
-    if (document.getElementById('Level 1').checked) {
-        levelIndex = document.getElementById('Level 1').value;
+    if (document.getElementById('Level1').checked) {
+        levelIndex = document.getElementById('Level1').value;
     }
-    else if (document.getElementById('Level 2').checked) {
-        levelIndex = document.getElementById('Level 2').value;
+    else if (document.getElementById('Level2').checked) {
+        levelIndex = document.getElementById('Level2').value;
     }
     requestdata = {}
     requestdata.levelIndex = levelIndex;
@@ -108,11 +108,11 @@ async function saveToDB() {
             levelIndex = res.levelIndex;
             examName = res.examName;
         });
+        document.getElementById("ExamNameNav").value = examName;
+        document.getElementById('LevelExam').innerHTML = "Current Level of the Exam: " + levelIndex;
     } catch (jqXHR) {
         toastr.error(jqXHR.toString());
     }
-    document.getElementById("ExamNameNav").value = examName;
-    document.getElementById('LevelExam').innerHTML = "Current Level of the Exam: " + levelIndex;
 }
 
 $(() => {
