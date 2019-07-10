@@ -75,11 +75,11 @@ async function getLevel() {
                 levelIndex = res.levelIndex;
                 document.getElementById('ExamNameNav').innerHTML += " (Level " + levelIndex + ")";
                 // document.getElementById('LevelExam').innerHTML = "Current Level of the Exam: " + res.levelIndex;
-                if(levelIndex == 2){
-                    document.getElementById("checkRollNo").disabled = true;
+                if (levelIndex == 1) {
+                    $("#up-bio").removeClass("d-none");
                 }
-                else if(levelIndex == 1){
-                    document.getElementById("verifyCandidateBtn").disabled = true;
+                else if (levelIndex == 2) {
+                    $("#ver-can").removeClass("d-none");
                 }
             });
     } catch (jqXHR) {
