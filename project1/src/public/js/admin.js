@@ -87,7 +87,8 @@ async function saveToDB() {
     }
     requestdata = {}
     requestdata.levelIndex = levelIndex;
-    requestdata.examName = document.getElementById("ExamName").value;
+    if (document.getElementById("ExamName").value)
+        requestdata.examName = document.getElementById("ExamName").value;
     const jsonData = JSON.stringify(requestdata);
     // console.log(jsonData);
     const settings = {
@@ -105,11 +106,12 @@ async function saveToDB() {
     try {
         return await $.ajax(settings).done(res => {
             // toastr.success(res.message);
-            levelIndex = res.levelIndex;
-            examName = res.examName;
+            levelIndex = res.level.levelIndex;
+            examName = res.exam.examName;
+            document.getElementById("ExamNameNav").innerText = examName;
+            document.getElementById('LevelExam').innerText = "Current Level of the Exam: " + levelIndex;
         });
-        document.getElementById("ExamNameNav").value = examName;
-        document.getElementById('LevelExam').innerHTML = "Current Level of the Exam: " + levelIndex;
+
     } catch (jqXHR) {
         toastr.error(jqXHR.toString());
     }
