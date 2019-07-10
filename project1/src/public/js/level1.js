@@ -3,6 +3,7 @@ let rollNo;
 const Quality = 60;
 const TimeOut = 10;
 let fingerprintArray = null;
+let levelIndex = '';
 
 toastr.options = {
     "closeButton": true,
@@ -21,6 +22,77 @@ toastr.options = {
     "showMethod": "fadeIn",
     "hideMethod": "fadeOut"
 };
+
+async function getExamName() {
+    const jwtToken = localStorage.getItem("token");
+    if (!jwtToken) {
+        logout();
+    }
+    const settings = {
+        async: true,
+        method: "GET",
+        url: `api/getExamName/`,
+        headers: {
+            Authorization: `Bearer ${jwtToken}`
+        }
+    };
+    try {
+        return await $.ajax(settings)
+            .done((res) => {
+                // console.log(res);
+                examName = res.examName;
+                document.getElementById('ExamNameNav').innerHTML = res.examName;
+            });
+    } catch (jqXHR) {
+        if (jqXHR.status === 403) {
+            toastr.error('Login expired. Please login again');
+            setTimeout(() => {
+                logout();
+            }, 1000);
+        } else {
+            toastr.error(jqXHR.responseJSON.error);
+        }
+    }
+}
+
+async function getLevel() {
+    const jwtToken = localStorage.getItem("token");
+    if (!jwtToken) {
+        logout();
+    }
+    const settings = {
+        async: true,
+        method: "GET",
+        url: `api/getLevel/`,
+        headers: {
+            Authorization: `Bearer ${jwtToken}`
+        }
+    };
+    try {
+        return await $.ajax(settings)
+            .done((res) => {
+                // console.log(res);
+                levelIndex = res.levelIndex;
+                document.getElementById('ExamNameNav').innerHTML += " (Level " + levelIndex + ")";
+                // document.getElementById('LevelExam').innerHTML = "Current Level of the Exam: " + res.levelIndex;
+                if(levelIndex == 2){
+                    document.getElementById("checkRollNo").disabled = true;
+                }
+                else if(levelIndex == 1){
+                    document.getElementById("verifyCandidateBtn").disabled = true;
+                }
+            });
+    } catch (jqXHR) {
+        if (jqXHR.status === 403) {
+            toastr.error('Login expired. Please login again');
+            setTimeout(() => {
+                logout();
+            }, 1000);
+        } else {
+            toastr.error(jqXHR.responseJSON.error);
+        }
+    }
+}
 
 function assignToFinger(finger, imgSrc, isoTemplate) {
     switch (finger) {
@@ -281,4 +353,6 @@ function initListeners() {
 $(() => {
     clearImages();
     initListeners();
+    getExamName();
+    getLevel();
 });
