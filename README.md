@@ -9,7 +9,7 @@ Projects Undertaken at CDIT, Trivandrum during PS-1
 npm install
 ```
 
-#### Drop db and repopulate
+#### Drop all tables if any (or create them) and (re)populate again
 ``` bash
 npm run seed
 ```
