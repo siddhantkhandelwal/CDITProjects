@@ -5,7 +5,7 @@ module.exports = {
     try {
       let level = await Levels.findByPk("0");
       let exam = await Exams.findByPk("0");
-      console.log(exam);
+      // console.log(exam);
       if (!level || !exam) {
         return res.status(404).send({
           error: "Exam/Level not found"
@@ -49,7 +49,7 @@ module.exports = {
   async getLevel(req, res) {
     try {
       let level = await Levels.findByPk("0");
-      console.log(level)
+      // console.log(level)
       if (!level) {
         return res.status(404).send({
           error: "Level not found"
