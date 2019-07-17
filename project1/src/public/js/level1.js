@@ -298,7 +298,12 @@ async function verifyRollno() {
                 $("#fullName").val(res.name);
                 $("#gender").val(res.gender);
                 $("#dob").val(res.dateOfBirth);
-                $("#candidate-img").attr('src', res.photoPtr);
+                if (!res.newPhotoPtr) {
+                    $("#candidate-img").attr('src', res.photoPtr);
+                }
+                else {
+                    $("#candidate-img").attr('src', _decryptBuffer(res.newPhotoPtr.data));
+                }
                 $("#email").val(res.email);
                 $("#phone").val(res.mobileNo);
                 $("#currAddress").text(res.address);
@@ -324,7 +329,7 @@ function encodeImageFileAsURL() {
         const fileReader = new FileReader();
 
         fileReader.onload = function (fileLoadedEvent) {
-            console.log(fileLoadedEvent);
+            // console.log(fileLoadedEvent);
             const srcData = fileLoadedEvent.target.result; // <--- data: base64
             $("#face-img").attr('src', srcData);
             biometricData.newPhotoPtr = srcData;
